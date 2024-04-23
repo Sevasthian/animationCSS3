@@ -37,13 +37,22 @@ body {
   }
   
   .rain {
-    width: 1px;
-    height: 100px;
     position: absolute;
     top: 80px;
-    left: calc(50% - 0.5px);
-    animation: rain 1s linear infinite alternate;
+    left: calc(50% - 25px); /* Alinea las gotas de lluvia al centro */
   }
+  
+  .rain img {
+    width: 20px; /* Ancho de cada gota de lluvia */
+    height: 20px; /* Alto de cada gota de lluvia */
+    position: absolute;
+  }
+  
+  .rain img:nth-child(1) { left: 10px; top: -10px; }
+  .rain img:nth-child(2) { left: 20px; top: -20px; }
+  .rain img:nth-child(3) { left: 30px; top: -30px; }
+  /* Añade más gotas según sea necesario */
+  
   
   @keyframes rain {
     from { top: 80px; }
