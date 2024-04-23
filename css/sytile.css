@@ -1,95 +1,81 @@
-body {
-    margin: 0;
-    padding: 0;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-image:.background; /* cielo azul claro */
-  }
-  
-  .scene {
+body{
+    overflow: hidden;
+}
+.escenario {
     position: relative;
-    width: 800px; /* Ancho de la imagen de fondo */
-    height: 600px; /* Alto de la imagen de fondo */
+    width:100vw; /* Ajusta según el tamaño de tu escenario */
+    height: 100vh; /* Ajusta según el tamaño de tu escenario */
+    background-image: url(../storage/img/fondo.png);
+    background-size: cover;
   }
   
-  .background {
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -1; /* Colocar la imagen de fondo detrás de los otros elementos */
-  }
-  
-  .cloud, .sun, .flower {
-    position: absolute;
-  }
-  
-  .cloud {
-    top: 50px;
-    right: -200px; /* Comienza fuera de la pantalla */
-    animation: moveCloud 10s linear infinite alternate, generateRain 10s 5s linear infinite;
-  }
-  
-  .sun {
-    top: 20px;
-    left: calc(50% - 50px);
-  }
-  
-  .rain {
-    position: absolute;
-    top: 80px;
-    left: calc(50% - 25px); /* Alinea las gotas de lluvia al centro */
-  }
-  
-  .rain img {
-    width: 20px; /* Ancho de cada gota de lluvia */
-    height: 20px; /* Alto de cada gota de lluvia */
-    position: absolute;
-  }
-  
-  .rain img:nth-child(1) { left: 10px; top: -10px; }
-  .rain img:nth-child(2) { left: 20px; top: -20px; }
-  .rain img:nth-child(3) { left: 30px; top: -30px; }
-  /* Añade más gotas según sea necesario */
-  
-  
-  @keyframes rain {
-    from { top: 80px; }
-    to { top: 200px; }
-  }
-  
-  .flower {
-    background-color: white;
-    z-index: 100;
-    bottom: 50px;
-    left: calc(50% - 25px);
-    display: none; /* La flor está oculta al principio */
-    animation: bloom 3s 10s forwards; /* Aparece después de 10 segundos */
-  }
-  
-  .message {
+  .mensaje {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     font-size: 24px;
-    text-align: center;
-    display: none; /* El mensaje está oculto al principio */
+    color: white;
   }
   
-  @keyframes moveCloud {
-    from { right: -200px; }
-    to { right: calc(50% - 100px); }
+.nube {
+    position: absolute;
+    right: 0;
+    /* Empieza fuera del escenario */
+    /* Ajusta según el tamaño de tu nube */
+    background-image: url(../storage/img/cloud.png);
+    animation: transition 5s linear forwards;
+    z-index: 100;
+
+  }
+  @keyframes transition{
+    0%{
+        transform: translateX(-200PX);
+        
+    }
+    100%{
+        transform: translateX(-650px);
+    }
+  }
+ 
+  .sol {
+    position: absolute;
   }
   
-  @keyframes generateRain {
-    50% { opacity: 1; }
-    to { opacity: 0; }
+  .lluvia {
+    position: absolute;
+    left: 50%;
+    top: 30%;
+    animation: transitionLlu 5s linear forwards;
+    animation-delay: 5s;
+    opacity: 0;
+  }
+  .lluvia img{
+    width: 300px;
+    height: 300px;
+  }
+
+ @keyframes transitionLlu{
+    0%{
+        transform: translateX(-200PX);
+        
+    }
+    100%{
+        transform: translateX(-200px);
+        opacity: 1;
+    }
   }
   
-  @keyframes bloom {
-    from { transform: scale(0); }
-    to { transform: scale(1); }
+  .flor {
+    /* Estilos de la flor */
   }
   
+  .casa {
+    /* Estilos de la casa */
+  }
+  
+  .arbol {
+    /* Estilos del árbol */
+  }
+  
+ 
