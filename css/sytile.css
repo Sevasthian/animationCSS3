@@ -5,7 +5,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #87CEEB; /* cielo azul claro */
+    background-image:.background; /* cielo azul claro */
   }
   
   .scene {
@@ -60,6 +60,8 @@ body {
   }
   
   .flower {
+    background-color: white;
+    z-index: 100;
     bottom: 50px;
     left: calc(50% - 25px);
     display: none; /* La flor está oculta al principio */
