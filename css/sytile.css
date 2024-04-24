@@ -1,61 +1,85 @@
 body{
+  margin: 0;
+  padding: 0;
+  box-sizing: 0;
     overflow: hidden;
+}
+#fondo1{
+  position: absolute;
+  width: 1280px;
+  height: 720px;
+  z-index: 1;
 }
 .escenario {
     position: relative;
-    width:100vw; /* Ajusta según el tamaño de tu escenario */
-    height: 100vh; /* Ajusta según el tamaño de tu escenario */
-    background-image: url(../storage/img/fondo.png);
-    background-size: cover;
+    margin: 0 auto;
+    width: 1280px; 
+    height: 720px; 
+  }
+.mensaje {
+  position: absolute;
+  top: 85%;
+  left: 45%;
+  transform: translate(-50%, -50%);
+  font-size: 54px;
+  color: black;
+  z-index: 5;
+  opacity: 0;
+  animation: mensaje 2s linear forwards;
+  animation-delay: 8s;
+  }
+@keyframes mensaje {
+  100%{
+    opacity: 1;
   }
   
-  .mensaje {
+}
+.nube{
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 24px;
-    color: white;
-  }
-  
-.nube {
-    position: absolute;
+    top: 20%;
     right: 0;
-    /* Empieza fuera del escenario */
-    /* Ajusta según el tamaño de tu nube */
-    background-image: url(../storage/img/cloud.png);
     animation: transition 5s linear forwards;
-    z-index: 100;
+    z-index: 3;
 
   }
-  @keyframes transition{
-    0%{
+.nube img{
+  width: 180px;
+}
+@keyframes transition{
+  0%{
         transform: translateX(-200PX);
         
     }
-    100%{
+  100%{
         transform: translateX(-650px);
     }
   }
  
-  .sol {
-    position: absolute;
-  }
+.sol {
+  position: absolute;
+  z-index: 2;
+  right: 25px;
+}
+.sol img{
+  width: 200px;
+
+}
   
-  .lluvia {
+.lluvia {
     position: absolute;
-    left: 50%;
-    top: 30%;
+    left: 52%;
+    top: 29%;
     animation: transitionLlu 5s linear forwards;
     animation-delay: 5s;
     opacity: 0;
-  }
+  z-index: 2;
+}
   .lluvia img{
-    width: 300px;
-    height: 300px;
+    width: 160px;
+    height: 420px;
   }
 
- @keyframes transitionLlu{
+@keyframes transitionLlu{
     0%{
         transform: translateX(-200PX);
         
@@ -64,18 +88,46 @@ body{
         transform: translateX(-200px);
         opacity: 1;
     }
+}
+
+.flor {
+    position: absolute;
+    right: 50%;
+    top: 65%;
+  z-index: 2;
+  opacity: 0;
+  animation: flor 5s linear forwards;
+  animation-delay: 5s;
+}
+.flor img{
+    width: 150px;
+}
+@keyframes flor {
+  100%{
+    opacity: 1;
   }
+}
   
-  .flor {
-    /* Estilos de la flor */
-  }
+.casa {
+  right: 0;
+  top: 0px;
+  z-index: 2;
+  position: absolute;
+}
+.casa img{
+  width: 800px;
+  height: 980px;
+
+}
   
-  .casa {
-    /* Estilos de la casa */
-  }
-  
-  .arbol {
-    /* Estilos del árbol */
-  }
-  
- 
+.arbol{
+  top: 90px;
+  left: 0;
+  z-index: 2;
+  position: absolute;
+}
+
+.arbol img{
+  width: 410px;
+  height: 560px;
+}
